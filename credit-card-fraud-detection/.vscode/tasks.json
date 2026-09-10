@@ -1,0 +1,7 @@
+{
+  "version":"2.0.0",
+  "tasks":[
+    {"label":"Backend: FastAPI","type":"shell","command":"cd backend && python -m uvicorn app.main:app --reload","problemMatcher":[]},
+    {"label":"Frontend: Vite","type":"shell","command":"cd frontend && npm run dev","problemMatcher":[]}
+  ]
+}
