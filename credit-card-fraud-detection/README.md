@@ -1,91 +1,50 @@
-# Credit Card Fraud Detection — VS Code
+# 💳 Credit Card Fraud Detection
 
-A full-stack learning project for credit-card fraud detection.
+> **A full-stack, real-time machine learning and analytics platform for detecting credit card fraud and evaluating risk scores.**
 
-## Stack
-- Frontend: React + TypeScript + Vite
-- Backend: Python + FastAPI
-- ML: Pandas, NumPy, scikit-learn
-- Database: SQLite
-- Charts/UI: React + CSS
+---
 
-## Features
-- Transaction preprocessing
-- Fraud classification
-- Anomaly detection
-- Fraud probability scoring
-- Precision, Recall, F1 and ROC-AUC
-- SQLite transaction history
-- Dashboard, manual analysis, history and model evaluation
-- Secure user authentication with analyst and admin roles
-- Synthetic sample dataset
+## 🛠️ Tech Stack
 
-## Run in VS Code
+| Domain | Technologies |
+| :--- | :--- |
+| **Frontend** | React, TypeScript, Vite, CSS3 |
+| **Backend** | Python, FastAPI, Uvicorn |
+| **Machine Learning** | scikit-learn, Pandas, NumPy |
+| **Database** | SQLite |
+| **Security** | JWT Authentication (Role-Based: Analyst & Admin) |
 
-### Backend
-```bash
-cd backend
-python -m venv .venv
-```
-Windows:
-```bash
-.venv\Scripts\activate
-```
-macOS/Linux:
-```bash
-source .venv/bin/activate
-```
-Then:
-```bash
-pip install -r requirements.txt
-```
+---
 
-Set a JWT signing secret before starting the API. It must be at least 32 characters and must not be committed:
-```powershell
-$env:JWT_SECRET_KEY="replace-with-a-random-secret-at-least-32-characters"
-```
-macOS/Linux:
-```bash
-export JWT_SECRET_KEY="replace-with-a-random-secret-at-least-32-characters"
-```
-Optional token lifetime configuration:
-```bash
-JWT_ACCESS_TOKEN_EXPIRE_MINUTES=30
-```
+## ✨ Key Features
 
-Start the API:
-```bash
-python -m uvicorn app.main:app --reload
-```
+* ⚡ **Real-Time Data Preprocessing:** Automated feature scaling and data cleaning pipeline for instant model ingestion.
+* 🤖 **Dual ML Detection Engine:** Combines supervised classification models with unsupervised anomaly detection.
+* 📊 **Risk & Probability Scoring:** Generates dynamic fraud probability scores for individual transactions.
+* 📈 **Comprehensive Evaluation Metrics:** Displays real-time Precision, Recall, F1-Score, and ROC-AUC metrics.
+* 🖥️ **Interactive Operations Dashboard:** Includes manual transaction testing, historical query logs, and visual performance metrics.
+* 🔐 **Role-Based Access Control (RBAC):** Secure endpoint authorization differentiating Analyst and Admin capabilities.
+* 🧪 **Synthetic Dataset Generator:** Built-in data generation utilities for local testing and development.
 
-Public users can register as analysts from the application. To create the first administrator, run this from the `backend` directory and enter the password interactively:
-```bash
-python -m app.create_admin --username admin --email admin@example.com
-```
+---
 
-Passwords are stored as Argon2 hashes. The API never returns password hashes. Analysts can analyze transactions and view history; admins can also access administrative model endpoints.
+## 📁 Repository Structure
 
-### Frontend
-Open a second terminal:
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Open the Vite URL, normally `http://localhost:5173`.
-
-The API runs at `http://127.0.0.1:8000`.
-
-> The included dataset is synthetic and is for education/demo use only.
-
-### Authenticated application
-
-Start the backend with `JWT_SECRET_KEY` set, then start the frontend in a second terminal. Open the Vite URL, register an analyst account or sign in with an administrator account, and use the logout control in the sidebar to end the browser session. Authentication state is kept in session storage and is sent to private API routes as a Bearer token.
-
-### Tests
-
-From the `backend` directory, with the virtual environment active:
-```bash
-pytest -q
-```
+```text
+credit-card-fraud-detection/
+├── 📂 backend/
+│   ├── 📂 app/
+│   │   ├── 📂 api/
+│   │   ├── 📂 core/
+│   │   ├── 📂 models/
+│   │   └── 📂 services/
+│   ├── 📂 data/
+│   ├── 📄 main.py
+│   └── 📄 requirements.txt
+└── 📂 frontend/
+    ├── 📂 src/
+    │   ├── 📂 components/
+    │   ├── 📂 pages/
+    │   └── 📂 services/
+    ├── 📄 package.json
+    └── 📄 vite.config.ts
